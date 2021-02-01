@@ -1,7 +1,6 @@
 package questions.tree;
 
-import java.util.ArrayList;
-import java.util.Arrays;
+import java.util.*;
 
 /**
  * @program: leetcode_forwork
@@ -38,12 +37,44 @@ public class SymmetricBinaryTree {
         return judgement(left.left, right.right) && judgement(left.right, right.left);
     }
 
+    public boolean isSymmetricIter(TreeNode root){
+        // 迭代版本实质与递归没有区别，都是对当前的左右结点值进行判别
+        if(root == null)
+            return true;
+
+        Deque<TreeNode> queue = new LinkedList<>();
+        queue.add(root.left);
+        queue.add(root.right);
+
+        while(!queue.isEmpty()){
+            TreeNode t1 = queue.poll();
+            TreeNode t2 = queue.poll();
+
+            // 需要先将满足条件的进行跳过处理，否则会出错
+            if(t1==null && t2==null)
+                continue;
+
+            if(t1==null || t2 ==null ||(t1.val != t2.val))
+                return false;
+
+            queue.add(t1.left);
+            queue.add(t2.right);
+
+            queue.add(t1.right);
+            queue.add(t2.left);
+        }
+
+        return true;
+    }
+
     public static void main(String[] args) {
         SymmetricBinaryTree test = new SymmetricBinaryTree();
         CreateTree treeGene = new CreateTree();
 
         ArrayList<Integer> arr = new ArrayList<>(Arrays.asList(1,2,2,null,3,null,3));
         System.out.println(test.isSymmetric(treeGene.sequenceConstruction(arr,0)));
+
+        System.out.println(test.isSymmetricIter(treeGene.sequenceConstruction(arr,0)));
         System.out.println();
     }
 }
