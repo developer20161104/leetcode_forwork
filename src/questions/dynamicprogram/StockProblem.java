@@ -1,4 +1,4 @@
-package questions;
+package questions.dynamicprogram;
 
 import java.util.Arrays;
 

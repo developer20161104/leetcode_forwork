@@ -1,4 +1,4 @@
-package array;
+package questions;
 
 public class SimpleQuestion {
     public int removeDuplicates(int[] nums) {

@@ -1,7 +1,6 @@
-package questions;
+package questions.string;
 
 import java.util.HashMap;
-import java.util.HashSet;
 
 /**
  * @program: leetcode_forwork
