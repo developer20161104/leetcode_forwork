@@ -16,11 +16,14 @@ public class MinSumofPath {
         int[][] curSum = new int[rlen][clen];
 
         curSum[0][0] = grid[0][0];
+        // 横向边界
         for(int i=1;i<rlen;i++)
             curSum[i][0] = curSum[i-1][0] + grid[i][0];
+        // 纵向边界
         for(int i=1;i<clen;i++)
             curSum[0][i] = curSum[0][i-1] + grid[0][i];
 
+        // 剩余部分
         for(int i=1;i<rlen;i++)
             for(int j=1;j<clen;j++)
                 curSum[i][j] = grid[i][j] + Math.min(curSum[i-1][j], curSum[i][j-1]);
