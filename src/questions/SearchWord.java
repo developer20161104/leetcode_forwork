@@ -19,8 +19,9 @@ public class SearchWord {
     }
 
     private boolean dfs(char[][] board, String word, int index, int[] pos){
-        if(index == word.length())
-            return true;
+        // 当只出现一个字母时，需要特别判断，防止回溯时跳过
+        if(index == word.length()-1)
+            return word.charAt(index) == board[pos[0]][pos[1]];
 
         if(board[pos[0]][pos[1]] != word.charAt(index))
             return false;
@@ -31,6 +32,7 @@ public class SearchWord {
             int newPosR = pos[0]+ways[i][0];
             int newPosC = pos[1] + ways[i][1];
             if(newPosR >= 0 && newPosR < rlen && newPosC >=0 && newPosC < clen){
+                // 带返回值的递归需要向上传递结果
                 if(dfs(board, word, index+1, new int[]{newPosR, newPosC}))
                     return true;
             }
@@ -43,12 +45,15 @@ public class SearchWord {
 
     public static void main(String[] args) {
         SearchWord test = new SearchWord();
-        char[][] board = new char[][]{
-                {'A','B','C','E'},
-                {'S','F','C','S'},
-                {'A','D','E','E'},
-        };
+//        char[][] board = new char[][]{
+//                {'A','B','C','E'},
+//                {'S','F','C','S'},
+//                {'A','D','E','E'},
+//        };
 
-        System.out.println(test.exist(board, "ABCCFA"));
+        char[][] board = new char[][]{
+                {'a'},
+        };
+        System.out.println(test.exist(board, "a"));
     }
 }
