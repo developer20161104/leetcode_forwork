@@ -1,4 +1,4 @@
-package questions;
+package questions.backtracking;
 
 import java.util.*;
 import java.util.stream.Collectors;

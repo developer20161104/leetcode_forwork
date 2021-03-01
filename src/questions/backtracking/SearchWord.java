@@ -1,6 +1,4 @@
-package questions;
-
-import java.util.Arrays;
+package questions.backtracking;
 
 public class SearchWord {
     int[][] ways = new int[][]{{0,1},{1,0},{0,-1},{-1,0}};

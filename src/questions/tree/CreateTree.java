@@ -33,7 +33,7 @@ public class CreateTree {
     }
 
     // 利用先序遍历与中序遍历进行构造
-    public TreeNode buildTree(int[] preorder, int[] inorder) {
+    public TreeNode buildTreeByPreInorder(int[] preorder, int[] inorder) {
         return buildTreeSteps(preorder, inorder, 0, preorder.length, 0, inorder.length);
     }
 
@@ -58,6 +58,32 @@ public class CreateTree {
         return t;
     }
 
+    public TreeNode buildTreeByPostInorder(int[] postorder, int[] inorder){
+        return buildTreeSteps2(postorder, inorder, 0, postorder.length-1, 0, inorder.length-1);
+    }
+
+    private TreeNode buildTreeSteps2(int[] postorder, int[] inorder, int postleft, int postright, int inleft, int inright){
+        if(postleft > postright)
+            return null;
+
+        TreeNode curNode = new TreeNode(postorder[postright]);
+        int i;
+        // 先找右边的余位
+        for(i=inright;i>=inleft;i--){
+            if(inorder[i] == postorder[postright]){
+                break;
+            }
+        }
+
+        // 先构造右子树：遍历从右向左
+        int rightnum = inright-i;
+        curNode.right = buildTreeSteps2(postorder, inorder, postright-rightnum, postright-1, i+1, inright);
+        curNode.left = buildTreeSteps2(postorder, inorder, postleft, postright-rightnum-1, inleft, i-1);
+
+        return curNode;
+    }
+
+
     public static void main(String[] args) {
         CreateTree test = new CreateTree();
 
@@ -68,8 +94,12 @@ public class CreateTree {
 
         int[] preorder = new int[]{3,9,20,15,7};
         int[] inorder = new int[]{9,3,15,20,7};
+        int[] postorder = new int[]{9,15,7,20,3};
 
-        TreeNode tree = test.buildTree(preorder, inorder);
+        TreeNode tree = test.buildTreeByPreInorder(preorder, inorder);
+        TreeNode tree2 = test.buildTreeByPostInorder(postorder, inorder);
         test.preorderTravel(tree);
+        test.preorderTravel(tree2);
+        System.out.println();
     }
 }

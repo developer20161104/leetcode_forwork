@@ -1,4 +1,4 @@
-package questions;
+package questions.backtracking;
 
 import java.util.Arrays;
 import java.util.LinkedList;
