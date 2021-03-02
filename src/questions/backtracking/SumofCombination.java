@@ -1,8 +1,6 @@
 package questions.backtracking;
 
-import java.util.Arrays;
-import java.util.LinkedList;
-import java.util.List;
+import java.util.*;
 
 /**
  * @program: leetcode_forwork
@@ -13,14 +11,14 @@ import java.util.List;
 public class SumofCombination {
     public List<List<Integer>> combinationSum(int[] candidates, int target) {
         List<List<Integer>> tot = new LinkedList<>();
-        List<Integer> curList = new LinkedList<>();
+        ArrayDeque<Integer> curList = new ArrayDeque<>();
         Arrays.sort(candidates);
 
         getCollection(tot, 0, target, curList, candidates);
         return tot;
     }
 
-    private void getCollection(List<List<Integer>> tot, int index, int target, List<Integer> curList, int[] candidates){
+    private void getCollection(List<List<Integer>> tot, int index, int target, ArrayDeque<Integer> curList, int[] candidates){
         if(target == 0){
             // 需要进行深拷贝
             List<Integer> cur = new LinkedList<>(curList);
@@ -30,6 +28,7 @@ public class SumofCombination {
             return;
         }
 
+        // 通过设置下一轮搜索的起点，使得后续重复遍历被过滤掉
         for(int i=index;i<candidates.length;i++){
             // 滤重操作
 //            if(i >0 && candidates[i] == candidates[i-1])
@@ -41,9 +40,19 @@ public class SumofCombination {
 
             curList.add(candidates[i]);
 
+            System.out.print("add " + candidates[i] + " curlist ");
+            curList.stream().forEach(System.out::print);
+            System.out.println();
+
+            // 使用 i 会过滤掉前面的值， 使用index则会全部加入遍历
             getCollection(tot, i, target, curList, candidates);
             // 移除当前项
-            curList.remove(new Integer(candidates[i]));
+            curList.removeLast();
+
+            System.out.print("remove " + candidates[i] + " curList ");
+            curList.stream().forEach(System.out::print);
+            System.out.println();
+
             target += candidates[i];
         }
     }

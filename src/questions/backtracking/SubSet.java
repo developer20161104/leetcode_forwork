@@ -31,7 +31,7 @@ public class SubSet {
         for(int i=index;i< nums.length;i++){
             curSet.add(nums[i]);
             // 使用i+1与i=index防止重复
-            getSort(nums, res, curSet, i+1, k);
+            getSort(nums, res, curSet, i, k);
             curSet.remove(new Integer(nums[i]));
         }
 
@@ -60,7 +60,7 @@ public class SubSet {
     public static void main(String[] args) {
         SubSet test = new SubSet();
 
-        List<List<Integer>> res = test.subsetsIter(new int[]{1,2,3});
+        List<List<Integer>> res = test.subsets(new int[]{1,2,3});
         for(List<Integer> curlist: res){
             curlist.stream().forEach(System.out::print);
             System.out.println();
