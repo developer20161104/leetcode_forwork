@@ -1,4 +1,4 @@
-package questions;
+package questions.dynamicprogram;
 
 /**
  * @program: leetcode_forwork

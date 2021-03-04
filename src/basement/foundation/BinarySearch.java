@@ -1,5 +1,7 @@
 package basement.foundation;
 
+import java.util.Arrays;
+
 public class BinarySearch {
     public int RecursiveBS(int[] nums, int target){
         return RBS(nums, 0, nums.length-1, target);
@@ -65,7 +67,7 @@ public class BinarySearch {
             }else right = mid-1;
         }
 
-        if(nums[left] != target) return res;
+        if(left == nums.length || nums[left] != target) return res;
         res[0] = left;
 
         left=0;
@@ -362,8 +364,8 @@ public class BinarySearch {
 
         // 依据题目的要求进行右指针范围的选择，如果需要查找到尾部之后的位置，则使用排除法时需要增加右指针的判断位置
 
-        int[] res = test.searchRange(new int[]{1,1,2}, 1);
-        for (int re : res) System.out.println(re);
+//        int[] res = test.searchRange(new int[]{1,1,2}, 1);
+//        for (int re : res) System.out.println(re);
 
         int[] nums_33 = new int[]{3,4,0,1,2};
 //        System.out.println(test.search(nums_33, 0));
@@ -383,6 +385,8 @@ public class BinarySearch {
 //        System.out.println(test.findMedianSortedArrays_Recursive(new int[]{1,2,3}, new int[]{2,3,4}));
 
 
+        System.out.println(test.search(new int[]{3,1}, 1));
 
+        System.out.println(Arrays.toString(test.searchRange(new int[]{1, 2}, 1)));
     }
 }
