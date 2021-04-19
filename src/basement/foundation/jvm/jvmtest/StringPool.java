@@ -1,4 +1,4 @@
-package basement.foundation.jvmtest;
+package basement.foundation.jvm.jvmtest;
 
 //  StringTable位于堆中，使用哈希表实现 []
 public class StringPool {

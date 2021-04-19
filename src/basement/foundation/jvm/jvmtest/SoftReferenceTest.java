@@ -1,11 +1,10 @@
-package basement.foundation.jvmtest;
+package basement.foundation.jvm.jvmtest;
 
 import java.io.IOException;
 import java.lang.ref.Reference;
 import java.lang.ref.ReferenceQueue;
 import java.lang.ref.SoftReference;
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.List;
 
 /**

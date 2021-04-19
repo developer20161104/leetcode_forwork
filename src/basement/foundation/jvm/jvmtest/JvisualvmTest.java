@@ -1,4 +1,4 @@
-package basement.foundation.jvmtest;
+package basement.foundation.jvm.jvmtest;
 
 import java.util.ArrayList;
 import java.util.List;

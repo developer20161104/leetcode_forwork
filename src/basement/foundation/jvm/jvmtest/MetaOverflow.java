@@ -1,4 +1,4 @@
-package basement.foundation.jvmtest;
+package basement.foundation.jvm.jvmtest;
 
 import jdk.internal.org.objectweb.asm.ClassWriter;
 import jdk.internal.org.objectweb.asm.Opcodes;

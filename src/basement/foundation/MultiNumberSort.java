@@ -111,13 +111,13 @@ public class MultiNumberSort {
     public int[] sortByQuick(int[] arr){
         if(arr.length < 2)
             return arr;
-//        return quickSort(arr, 0, arr.length-1);
-        return quickSortIter(arr, 0, arr.length-1);
+        return quickSort(arr, 0, arr.length-1);
+//        return quickSortIter(arr, 0, arr.length-1);
     }
 
     private int[] quickSort(int[] arr, int left, int right){
         if(left < right){
-            int partition = getPartition(arr,left, right);
+            int partition = getPartitionRaw(arr,left, right);
             // partition位置已经为有序，因此只要排列其它位置
             // 双闭区间
             quickSort(arr, left, partition-1);
@@ -245,11 +245,11 @@ public class MultiNumberSort {
 
     public static void main(String[] args) {
         MultiNumberSort test = new MultiNumberSort();
-        int[] arr = new int[]{4,6,8,5,9};
+        int[] arr = new int[]{4,6,8,5,5,5,4,9};
 
 //        arr = test.sortbyMerge(arr);
-//        arr = test.sortByQuick(arr);
-        arr = test.sortbyHeap(arr);
+        arr = test.sortByQuick(arr);
+//        arr = test.sortbyHeap(arr);
         Arrays.stream(arr).forEach(System.out::println);
     }
 }

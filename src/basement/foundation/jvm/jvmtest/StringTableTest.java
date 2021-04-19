@@ -1,4 +1,4 @@
-package basement.foundation.jvmtest;
+package basement.foundation.jvm.jvmtest;
 
 /**
  * 演示 StringTable 的垃圾回收机制

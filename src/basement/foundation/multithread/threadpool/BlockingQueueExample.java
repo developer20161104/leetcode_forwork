@@ -1,4 +1,4 @@
-package basement.foundation.multithread;
+package basement.foundation.multithread.threadpool;
 
 import java.util.concurrent.ArrayBlockingQueue;
 import java.util.concurrent.BlockingQueue;

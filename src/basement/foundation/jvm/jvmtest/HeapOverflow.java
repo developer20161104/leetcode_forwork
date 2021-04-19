@@ -1,4 +1,4 @@
-package basement.foundation.jvmtest;
+package basement.foundation.jvm.jvmtest;
 
 // 禁用显式回收的方式 -XX:+DisableExplicitGC
 public class HeapOverflow {

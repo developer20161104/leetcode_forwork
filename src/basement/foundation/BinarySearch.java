@@ -354,12 +354,12 @@ public class BinarySearch {
     }
 
     public static void main(String[] args) {
-        int[] nums = new int[]{1,2,2,3,3,4,5,6};
+        int[] nums = new int[]{1,2,2,3,3,4,5,6,9};
 
         BinarySearch test = new BinarySearch();
         // 以上皆为左二分，即最终返回的是最左侧的合适位置
 //        System.out.println(test.RecursiveBS(nums, 2));
-//        System.out.println(test.IterativeBS(nums, 2));
+        System.out.println(test.IterativeBS(nums, 7));
 //        System.out.println(test.IterativeBSExclude(new int[]{1,1,2}, 1));
 
         // 依据题目的要求进行右指针范围的选择，如果需要查找到尾部之后的位置，则使用排除法时需要增加右指针的判断位置
