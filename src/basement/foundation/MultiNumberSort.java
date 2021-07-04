@@ -1,5 +1,6 @@
 package basement.foundation;
 
+import java.math.BigDecimal;
 import java.util.Arrays;
 import java.util.Stack;
 
@@ -251,5 +252,7 @@ public class MultiNumberSort {
         arr = test.sortByQuick(arr);
 //        arr = test.sortbyHeap(arr);
         Arrays.stream(arr).forEach(System.out::println);
+
+        BigDecimal a = new BigDecimal(String.valueOf(10));
     }
 }
